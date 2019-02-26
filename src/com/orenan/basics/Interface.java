@@ -42,6 +42,7 @@ public class Interface {
 	boolean multiplication = false;
 	boolean division = false;
 	boolean operation = false;
+	boolean resultExists = false;
 
 	int result;
 
@@ -323,32 +324,72 @@ public class Interface {
 		return;
 
 	}private void operationDivision() {
+		if(resultExists == true) {
+			firstNumberInt = result;
+			division = true;
+			operation = true;
+			display.setText("");
+			resultExists = false;
+			return;
+			
+		}else {
 		firstNumberInt = Integer.parseInt(firstNumber); 
 		division = true;
 		operation = true;
 		display.setText("");
 		return;
+		}
 
 	}private void operationMultiplication() {
+		if(resultExists == true) {
+			firstNumberInt = result;
+			multiplication = true;
+			operation = true;
+			display.setText("");
+			resultExists = false;
+			return;
+			
+		}else {
 		firstNumberInt = Integer.parseInt(firstNumber); 
 		multiplication = true;
 		operation = true;
 		display.setText("");
 		return;
+		}
 
 	}private void operationAddition() {
+		if(resultExists == true) {
+			firstNumberInt = result;
+			addition = true;
+			operation = true;
+			display.setText("");
+			resultExists = false;
+			return;
+			
+		}else {
 		firstNumberInt = Integer.parseInt(firstNumber); 
 		addition = true;
 		operation = true;
 		display.setText("");
 		return;
+		}
 
 	}private void operationSubtraction() {
+		if(resultExists == true) {
+			firstNumberInt = result;
+			subtraction = true;
+			operation = true;
+			display.setText("");
+			resultExists = false;
+			return;
+			
+		}else {
 		firstNumberInt = Integer.parseInt(firstNumber); 
 		subtraction = true;
 		operation = true;
 		display.setText("");
 		return;
+		}
 
 	}private void operationEquals() {
 
@@ -361,6 +402,8 @@ public class Interface {
 			firstNumberInt = 0;
 			secondNumberInt = 0;
 			display.setText(Integer.toString(result));
+			resultExists = true;
+			addition = false;
 
 		}else if(addition == false && subtraction == true && multiplication == false && division == false) {
 			secondNumberInt = Integer.parseInt(secondNumber);
@@ -370,6 +413,8 @@ public class Interface {
 			firstNumberInt = 0;
 			secondNumberInt = 0;
 			display.setText(Integer.toString(result));
+			resultExists = true;
+			subtraction = false;
 
 		}else if(addition == false && subtraction == false && multiplication == true && division == false) {
 			secondNumberInt = Integer.parseInt(secondNumber);
@@ -379,6 +424,8 @@ public class Interface {
 			firstNumberInt = 0;
 			secondNumberInt = 0;
 			display.setText(Integer.toString(result));
+			resultExists = true;
+			multiplication = false;
 
 		}else if(addition == false && subtraction == false && multiplication == false && division == true) {
 			secondNumberInt = Integer.parseInt(secondNumber);
@@ -389,6 +436,8 @@ public class Interface {
 				secondNumber = "";
 				firstNumberInt = 0;
 				secondNumberInt = 0;
+				resultExists = true;
+				division = false;
 
 			}else {
 				result = firstNumberInt / secondNumberInt;
@@ -398,6 +447,8 @@ public class Interface {
 				secondNumber = "";
 				firstNumberInt = 0;
 				secondNumberInt = 0;	
+				resultExists = true;
+				division = false;
 			}
 		}else {
 			display.setText("INVALID OPERATION!!!");
